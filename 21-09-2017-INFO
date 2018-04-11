@@ -1,0 +1,59 @@
+#include <iostream>
+
+using namespace std;
+
+unsigned int a,b;
+void citire()
+{
+    cout<<"a=";
+    cin>>a;
+    cout<<"b=";
+    cin>>b;
+}
+unsigned int invers(unsigned int x)
+{
+    unsigned int inv=0;
+    while(x!=0)
+    {
+        inv=inv*10+(x%10);
+        x=x/10;
+    }
+    return inv;
+}
+void palindrom()
+{
+    unsigned int i,nr=0;
+    for(i=a;i<=b;i++)
+    {
+        if(i==invers(i))
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%2==0)
+                cout<<endl;
+        }
+    }
+}
+unsigned int suma(unsigned int x)
+{
+    unsigned int s=0;
+    while(x!=0)
+    {
+        s+=(x%10);
+        x=x/10;
+    }
+    return s;
+}
+void afisare()
+{
+    unsigned int i;
+    for(i=a;i<=b;i++)
+        cout<<suma(i)<<" ";
+}
+int main()
+{
+    citire();
+    palindrom();
+    afisare();
+    return 0;
+}
