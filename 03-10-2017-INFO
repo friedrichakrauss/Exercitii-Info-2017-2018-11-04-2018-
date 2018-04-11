@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+//Se citesc de la tastatura capetele unui interval (a,b). Sa se afiseze numerele prime din intervalul (a,b).
+
+unsigned int a,b,i;
+void citire()
+{
+    cout<<"a=";
+    cin>>a;
+    cout<<"b=";
+    cin>>b;
+}
+unsigned int prim(unsigned int x)
+{
+    unsigned int d;
+    if(x==0||x==1)
+        return 0;
+    for(d=2;d<=x/2;d++)
+        if(x%d==0)
+            return 0;
+    return 1;
+}
+unsigned int divizori(unsigned int x)
+{
+    unsigned int d,nr=0;
+    for(d=1;d<=x;d++)
+    {
+        if(x%d==0)
+            nr++;
+    }
+    return nr;
+}
+int main()
+{
+    unsigned int nr=0;
+    citire();
+    for(i=a;i<=b;i++)
+    {
+        if((prim(i))==1)
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+    return 0;
+}
