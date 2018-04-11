@@ -1,0 +1,24 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int a,b;
+ifstream f("caz1.txt");
+ofstream g("rez1.txt");
+void citire()
+{
+    f>>a;
+    f>>b;
+}
+void rezultat()
+{
+    g<<"Suma este:"<<a+b<<endl;
+    g<<"Produsul este:"<<a*b<<endl;
+}
+int main()
+{
+    citire();
+    rezultat();
+    return 0;
+}
