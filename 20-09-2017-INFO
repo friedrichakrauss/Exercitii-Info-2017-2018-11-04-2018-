@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+int a,b;
+void citire()
+{
+    cout<<"a=";
+    cin>>a;
+    cout<<"b=";
+    cin>>b;
+}
+int suma(int a, int b)
+{
+    int s=0;
+    s=a+b;
+    return s;
+}
+int produs(int a, int b)
+{
+    int p=1;
+    p=a*b;
+    return p;
+}
+int main()
+{
+    citire();
+    cout<<"Suma este:"<<suma(a,b)<<endl;
+    cout<<"Produsul este:"<<produs(a,b)<<endl;
+    return 0;
+}
