@@ -1,0 +1,88 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+//1).
+/*
+unsigned int n,x,i,a[1000];
+ofstream f("bac.txt");
+void citire()
+{
+    cout<<"n=";
+    cin>>n;
+    if(n>999||n==0)
+        do
+        {
+           cout<<"Alegeti o valoare nenula, mai mica sau egala cu 999"<<endl<<"n=";
+           cin>>n;
+        }while(n>999||n==0);
+    cout<<"x=";
+    cin>>x;
+}
+void afisare()
+{
+    unsigned int nr=0;
+    for(i=0;i<n;i++)
+    {
+        cout<<"val"<<i<<"=";
+        cin>>a[i];
+        f<<a[i]<<" ";
+    }
+    cout<<endl;
+    for(i=0;i<n;i++)
+        if(a[i]%x==0)
+        {
+            cout<<a[i]<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+}
+int main()
+{
+    citire();
+    afisare();
+    return 0;
+} */
+
+//2).
+int a,b;
+unsigned int l;
+ofstream f("a-patratul.txt");
+ofstream g("b-suma.txt");
+ofstream h("c-numerele-de-doua-cifre.txt");
+ofstream i("d-numarul-divizorilor.txt");
+ofstream j("e-numerele-de-cel-putin-doua-cifre.txt");
+ofstream k("f-numarul-de-zerouri.txt");
+void citire()
+{
+    cout<<"a=";
+    cin>>a;
+    cout<<"b=";
+    cin>>b;
+}
+void afisare()
+{
+    unsigned int nr=0;
+    for(i=0;i<n;i++)
+    {
+        cout<<"val"<<i<<"=";
+        cin>>a[i];
+        f<<a[i]<<" ";
+    }
+    cout<<endl;
+    for(i=0;i<n;i++)
+        if(a[i]%x==0)
+        {
+            cout<<a[i]<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+}
+int main()
+{
+    citire();
+    afisare();
+    return 0;
+}
