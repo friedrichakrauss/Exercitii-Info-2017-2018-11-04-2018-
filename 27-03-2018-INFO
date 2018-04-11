@@ -1,0 +1,175 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+//II. Se citesc dimensiunile unei matrici nepatratice. Sa se scrie un program care sa realizeze urmatoarele:
+unsigned int n,m,i,j;
+int a[100][200];
+void citire()
+{
+    cout<<"n=";
+    cin>>n;
+    cout<<"m=";
+    cin>>m;
+    for(i=0;i<n;i++)
+        for(j=0;j<m;j++)
+        {
+            cout<<"a["<<i<<"]["<<j<<"]=";
+            cin>>a[i][j];
+        }
+}
+//a).
+int suma_cifrelor_3(int x)
+{
+    int s=0;
+    while(x!=0)
+    {
+        if(x%10%3==0)
+            s+=x%10;
+        x/=10;
+    }
+    return s;
+}
+void afisare1()
+{
+    unsigned int nr=0;
+    for(i=0;i<n;i++)
+        for(j=0;j<m;j++)
+            if(a[i][j]>=1000&&a[i][j]<=9999)
+            {
+                cout<<suma_cifrelor_3(a[i][j])<<" ";
+                nr++;
+                if(nr%6==0)
+                    cout<<endl;
+            }
+}
+//c).
+int suma_cifrelor(int x)
+{
+    int s=0;
+    while(x!=0)
+    {
+        s+=x%10;
+        x/=10;
+    }
+    return s;
+}
+int prim(int x)
+{
+    unsigned int d;
+    for(d=2;d<=(x/2);d++)
+        if(x%d==0)
+            return 0;
+    return 1;
+}
+void afisare2()
+{
+    unsigned int nr=0;
+    for(i=0;i<n;i++)
+        for(j=0;j<m;j++)
+            if(a[i][j]>=10&&a[i][j]<=99&&prim(suma_cifrelor(a[i][j]))==1)
+            {
+                cout<<suma_cifrelor(a[i][j])<<" ";
+                nr++;
+                if(nr%6==0)
+                    cout<<endl;
+            }
+}
+//d).
+int divizori_impari(int x)
+{
+    unsigned int d,e=0;
+    for(d=3;d<=(x/2);d+=2)
+        if(x%d==0)
+            e++;
+    if(x%2!=0)
+        return e+2;
+    else
+        return e+1;
+}
+void afisare3()
+{
+    unsigned int nr=0;
+    for(i=0;i<n;i++)
+        for(j=0;j<m;j++)
+            if(a[i][j]>=10&&a[i][j]<=99)
+            {
+                cout<<divizori_impari(a[i][j])<<" ";
+                nr++;
+                if(nr%6==0)
+                    cout<<endl;
+            }
+}
+//e).
+int patrate_mai(int x)
+{
+    int inv=0;
+    if(sqrt(x)!=(int)sqrt(x))
+        return 0;
+    while(x!=0)
+    {
+        inv=inv*10+x%10;
+        x/=10;
+    }
+    if(sqrt(inv)!=(int)sqrt(inv))
+        return 0;
+    return 1;
+}
+void afisare4()
+{
+    unsigned int nr=0;
+    for(i=0;i<n;i++)
+        for(j=0;j<m;j++)
+            if(a[i][j]>=10&&a[i][j]<=99&&patrate_mai(a[i][j])==1)
+            {
+                cout<<a[i][j]<<" ";
+                nr++;
+                if(nr%6==0)
+                    cout<<endl;
+            }
+}
+//f).
+int nr_zerouri(int x)
+{
+    unsigned int d=0;
+    while(x!=0)
+    {
+        if(x%10==0)
+            d++;
+        x/=10;
+    }
+    return d;
+}
+void afisare5()
+{
+    unsigned int nr=0;
+    for(i=0;i<n;i++)
+        for(j=0;j<m;j++)
+            if(a[i][j]>=10&&a[i][j]<=99)
+            {
+                cout<<nr_zerouri(a[i][j])<<" ";
+                nr++;
+                if(nr%6==0)
+                    cout<<endl;
+            }
+}
+int main()
+{
+    citire();
+    cout<<endl;
+    cout<<endl;
+    afisare1();
+    cout<<endl;
+    cout<<endl;
+    afisare2();
+    cout<<endl;
+    cout<<endl;
+    afisare3();
+    cout<<endl;
+    cout<<endl;
+    afisare4();
+    cout<<endl;
+    cout<<endl;
+    afisare5();
+    return 0;
+}
