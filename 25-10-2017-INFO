@@ -1,0 +1,115 @@
+#include <iostream>
+
+using namespace std;
+/*
+Se citesc capetele unui interval inchis [a,b]. Sa se afiseze:
+a). inversul fiecarui numar de trei cifre;
+b). suma cifrelor fiecarui numar de doua cifre, par si divizibil cu 5;
+c). numerele palindrom de 4 cifre;
+d). produsul cifrelor numerelor prime care citite invers sunt tot prime;
+e). raportul dintre nr. divizorilor pari si impari pentru nr. de doua cifre.
+*/
+unsigned int a,b,i;
+void citire()
+{
+    cout<<"a=";
+    cin>>a;
+    cout<<"b=";
+    cin>>b;
+}
+unsigned int inversul(unsigned int x)
+{
+    unsigned int inv=0;
+    while(x!=0)
+    {
+        inv=inv*10+x%10;
+        x/=10;
+    }
+    return inv;
+}
+void afisare1()
+{
+    unsigned int nr=0;
+    for(i=a;i<=b;i++)
+    {
+        if(i>=100&&i<=999&&i==inversul(i))
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+unsigned int sumacifrelor(unsigned int x)
+{
+    unsigned int s=0;
+    while(x!=0)
+    {
+        s+=x%10;
+        x/=10;
+    }
+    return s;
+}
+void afisare2()
+{
+    unsigned int nr=0;
+    for(i=a;i<=b;i++)
+    {
+        if(i%10==0&&i>=10&&i<=99)
+        {
+            cout<<sumacifrelor(i)<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+void afisare3()
+{
+    unsigned int nr=0;
+    for(i=a;i<=b;i++)
+    {
+        if(i>=1000&&i<=9999&&i==inversul(i))
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+unsigned int prim(unsigned int x)
+{
+    unsigned int d;
+    if(x==0||x==1)
+        return 0;
+    for(d=2;d<=(x/2);d++)
+    {
+        if(x%d==0)
+            return 0;
+    }
+    return 1;
+}
+unsigned int produsulcifrelor(unsigned int x)
+{
+    unsigned int p=1;
+    while(x!=0)
+    {
+        p*=(x%10);
+        x/=10;
+    }
+    return p;
+}
+afisare4()
+{
+
+}
+int main()
+{
+    citire();
+    afisare1();
+    afisare2();
+    afisare3();
+    return 0;
+}
