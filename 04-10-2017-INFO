@@ -1,0 +1,172 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+/*
+Se citeste de la tastatura un nr. natural n. Sa se scrie un program care sa afiseze:
+a. Suma nr. pare de la 1 la n;
+b. Radacina patrata a produsului nr. pare si divizibile cu 3;
+c. Media aritmetica a numerelor de doua cifre identice;
+d. Afisarea numerelor, cate 5 pe fiecare rand.
+*/
+/*
+unsigned int n,i;
+void citire()
+{
+    cout<<"n=";
+    cin>>n;
+}
+unsigned int suma(unsigned int n)
+{
+    unsigned int s=0;
+    for(i=1;i<=n;i++)
+    {
+        if(i%2==0)
+            s+=i;
+    }
+    return s;
+}
+float rad(unsigned int n)
+{
+    unsigned int p=1;
+    for(i=2;i<=n;i+=2)
+    {
+        if(i%3==0)
+            p=p*i;
+    }
+    return sqrt(p);
+}
+flif(i%2==0)
+            s+=i;oat media(unsigned int n)
+{
+    unsigned int s=0,nr=0;
+    for(i=1;i<=n;i++)
+    {
+        if(i>=11&&i<=99&&(i/10)==(i%10))
+        {
+            s+=i;
+            nr++;
+        }
+    }
+    return (float)(s/nr);
+}
+void afisare()
+{
+    unsigned int nr=0;
+    for(i=1;i<=n;i++)
+    {
+        cout<<i<<" ";
+        nr++;
+        if(nr%5==0)
+            cout<<endl;
+    }
+}
+int main()
+{
+    citire();
+    cout<<"Suma nr. pare de la 1 la n este:"<<suma(n)<<endl;
+    cout<<"Radacina patrata a produsului nr. pare si diizibile cu trei este:"<<rad(n)<<endl;
+    cout<<"Media aritmetica a nr. de doua cifre identice de la 1 la n este:"<<media(n)<<endl;
+    afisare();
+    return 0;
+} */
+//RECAPITULARE SUBPROGRAME
+//1.
+/*
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+long n,m;
+void citire()
+{
+    cout<<"n=";
+    cin>>n;
+    m=n;
+}
+unsigned int suma(long n)
+{
+    unsigned int s=0;
+    while(n!=0)
+    {
+        s+=pow((n%10),2);
+        n/=10;
+    }
+    return s;
+}
+unsigned int numarul(long n)
+{
+    unsigned int nr=0;
+    while(n!=0)
+    {
+        if((n%10)%2==0)
+            nr++;
+        n/=10;
+    }
+    return nr;
+}
+long inversul(long n)
+{
+    long x=0;
+    while(n!=0)
+    {
+        x=x*10+n%10;
+        n/=10;
+    }
+    return x;
+}
+long numarul2(long n)
+{
+    return n/10;
+}
+unsigned int rememorare(long n)
+{
+    n=m;
+}
+int main()
+{
+    citire();
+    cout<<"Suma patratelor cifrelor lui n este:"<<suma(n)<<endl;
+    rememorare(n);
+    cout<<"Numarul cifrelor pare ale lui n este:"<<numarul(n)<<endl;
+    rememorare(n);
+    cout<<"Inversul lui n este:"<<inversul(n)<<endl;
+    rememorare(n);
+    cout<<"Numarul obtinut prin eliminarea ultimei cifre a lui n este:"<<numarul2(n)<<endl;
+    rememorare(n);
+    return 0;
+} */
+//2.
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int n;
+unsigned int i;
+void citire()
+{
+    cout<<"n=";
+    cin>>n;
+}
+void produsul()
+{
+    unsigned int p=1;
+    for(i=1;i<=n;i++)
+    {
+        while(i!=0)
+        {
+            p*=(i%10);
+            i/=10;
+        }
+        if(p%2==0)
+            cout<<
+    }
+}
+int main()
+{
+
+    return 0;
+}
