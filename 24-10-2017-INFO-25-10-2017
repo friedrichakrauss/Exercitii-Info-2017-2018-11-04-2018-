@@ -1,0 +1,137 @@
+#include <iostream>
+
+using namespace std;
+// IV.
+unsigned int a,b,i;
+void citire()
+{
+    cout<<"a=";
+    cin>>a;
+    cout<<"b=";
+    cin>>b;
+}
+void afisare1()
+{
+    unsigned int nr=0;
+    for(i=a;i<=b;i++)
+    {
+        if(i%2==0)
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+void afisare2()
+{
+    unsigned int nr=0;
+    for(i=a;i<=b;i++)
+    {
+        if(i%3==0)
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%6==0)
+                cout<<endl;
+        }
+    }
+}
+unsigned int inversul(unsigned int x)
+{
+    unsigned int inv=0;
+    while(x!=0)
+    {
+        inv=inv*10+x%10;
+        x/=10;
+    }
+    return inv;
+}
+unsigned int palindrom(unsigned int x)
+{
+    if(x>=10&&x<=99&&x==inversul(x))
+        return 1;
+    else
+        return 0;
+}
+void afisare3()
+{
+    unsigned int nr=0;
+    for(i=a;i<=b;i++)
+    {
+        if(palindrom(i)==1)
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+unsigned int numarulobtinut(unsigned int x)
+{
+    unsigned int y=0;
+    y=(x/1000)*10+(x%10);
+    return y;
+}
+void afisare4()
+{
+    unsigned int nr=0;
+    for(i=a;i<=b;i++)
+    {
+        if(i>=1000&&i<=9999)
+        {
+            cout<<numarulobtinut(i)<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+unsigned int numerele(unsigned int x)
+{
+    if(x>=100&&x<=999&&x%15==0&&((x%10)+(x/10%10))==12)
+        return 1;
+    else
+        return 0;
+}
+void afisare5()
+{
+    unsigned int nr=0;
+    for(i=a;i<=b;i++)
+    {
+        if(numerele(i)==1)
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+int main()
+{
+    citire();
+    cout<<endl;
+    cout<<endl;
+    cout<<"Numerele pare din intervalul ["<<a<<","<<b<<"] sunt:"<<endl;
+    afisare1();
+    cout<<endl;
+    cout<<endl;
+    cout<<"Numerele impare din intervalul ["<<a<<","<<b<<"] sunt:"<<endl;
+    afisare2();
+    cout<<endl;
+    cout<<endl;
+    cout<<"Numerele palindrom de minimum 2 cifre dinintervalul ["<<a<<","<<b<<"] sunt:"<<endl;
+    afisare3();
+    cout<<endl;
+    cout<<endl;
+    cout<<"Numerele care se obtin din numere de 4 cifre din intervalul ["<<a<<","<<b<<"] sunt:"<<endl;
+    afisare4();
+    cout<<endl;
+    cout<<endl;
+    cout<<"Numerele de trei cifre divizibile cu 15 si cu suma ultimelor doua cifre egala cu 12 din intervalul ["<<a<<","<<b<<"] sunt:"<<endl;
+    afisare5();
+    return 0;
+}
