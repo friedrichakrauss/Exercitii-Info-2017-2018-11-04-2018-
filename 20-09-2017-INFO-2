@@ -1,0 +1,59 @@
+//Se citeste de la tastatura un numar "n" de tip long. Sa se calculeze:
+//a). suma cifrelor numarului "n";
+//b). Media aritmetica a cifrelor;
+//c). Suma cifrelor pare si produsul cifrelor impare.
+#include <iostream>
+
+using namespace std;
+
+long n;
+void citire()
+{
+    cout<<"n=";
+    cin>>n;
+}
+unsigned int suma_cifrelor(long n)
+{
+    unsigned int s=0;
+    while(n!=0)
+    {
+        s+=(n%10);
+        n=(n/10);
+    }
+    return s;
+}
+float media_aritmetica(long n)
+{
+    unsigned int s=0,nr=0;
+    while(n!=0)
+    {
+        s+=(n%10);
+        n=(n/10);
+        nr++;
+    }
+    return (float)s/nr;
+}
+void suma_produs(long n)
+{
+    unsigned int s=0,p=1;
+    while(n!=0)
+    {
+        if(n%2==0)
+            s+=(n%10);
+        else
+            p*=(n%10);
+        n=(n/10);
+    }
+    cout<<"Suma cifrelor pare este:"<<s<<endl;
+    cout<<"Produsul numerelor impare este:"<<p<<endl;
+}
+int main()
+{
+    citire();
+    cout<<"Suma cifrelor este:"<<suma_cifrelor(n)<<endl;
+    citire();
+    cout<<"Media aritmetica este:"<<media_aritmetica(n)<<endl;
+    citire();
+    suma_produs(n);
+    return 0;
+}
