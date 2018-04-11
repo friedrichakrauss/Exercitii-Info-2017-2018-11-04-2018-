@@ -1,0 +1,164 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+/*
+II. Se citeste de la tastatura un numar intreg n.Sa se afiseze numerele de la 1 la n:
+a).care au produsul cifrelor un nr. par;
+b).cu proprietatea ca suma cifrelor sale este impara:
+c).care au suma cifrelor mai mare decat o anumita valoare citita de la tastatura:
+d).care au nr. divizorilor egal cu o anumita valoare citita de la tastatura:
+e).pentru nr. de doua cifre, sa se afiseze acelea, care impartite la 15 dau un rest egal cu patratul catului. Ex: 34.
+f).pentru nr. de doua cifre, sa se afiseze acelea care au numarul divizorilor fiecarui numar, un nr. par.
+*/
+unsigned int n,i;
+void citire()
+{
+    cout<<"n=";
+    cin>>n;
+}
+unsigned int produsulcifrelor(unsigned int x)
+{
+    unsigned int p=1;
+    while(x!=0)
+    {
+        p*=(x%10);
+        x/=10;
+    }
+    return p;
+}
+void afisare1()
+{
+    unsigned int nr=0,y;
+    for(i=1;i<=n;i++)
+    {
+        y=i;
+        if(produsulcifrelor(i)%2==0)
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }cout<<i<<" ";
+        nr++;
+        if(nr%5==0)
+            cout<<endl;
+        i=y;
+    }
+}
+unsigned int sumacifrelor(unsigned int x)
+{
+    unsigned int s=0;
+    while(x!=0)
+    {
+        s+=(x%10);
+        x/=10;
+    }
+    return s;
+}
+void afisare2()
+{
+    unsigned int nr=0,y;
+    for(i=1;i<=n;i++)
+    {
+        y=i;
+        if(sumacifrelor(i)%2==0)
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+        i=y;
+    }
+}
+void afisare3()
+{
+    unsigned int nr=0,y,z;
+    cout<<endl;
+    cout<<"z=";
+    cin>>z;
+    y=i;
+    for(i=1;i<=n;i++)
+    {
+        y=i;
+        if(sumacifrelor(i)%2==0)
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+        i=y;
+    }
+}
+unsigned int divizori(unsigned int x)
+{
+    unsigned int nr=0,d;
+    for(d=1;d<=x;d++)
+    {
+        if(x%d==0)
+            nr++;
+    }
+    return nr;
+}
+void afisare4()
+{
+    unsigned int y,z,nr=0;
+    cout<<endl;
+    cout<<"z=";
+    cin>>z;
+    for(i=1;i<=n;i++)
+    {
+        y=i;
+        if(divizori(i)==z)
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+        i=y;
+    }
+}
+void afisare5()
+{
+    unsigned int nr=0;
+    for(i=1;i<=n;i++)
+    {
+        if(i>=10&&i<=99&&(i%15)==pow(i/15,2))
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+void afisare6()
+{
+    unsigned int nr=0,y;
+    for(i=1;i<=n;i++)
+    {
+        y=i;
+        if(i>=10&&i<=99&&(divizori(i)%2)==0)
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+        i=y;
+    }
+}
+int main()
+{
+    citire();
+    afisare1();
+    afisare2();
+    afisare3();
+    afisare4();
+    afisare5();
+    afisare6();
+    return 0;
+}
