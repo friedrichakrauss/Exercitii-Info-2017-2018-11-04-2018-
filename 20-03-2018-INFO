@@ -1,0 +1,92 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+//Exercitiul 1 din caiet
+/*
+unsigned int n,m,i,j;
+int a[100][100];
+void citire_fara_parametri()
+{
+    cout<<"n=";
+    cin>>n;
+    cout<<"m=";
+    cin>>m;
+    for(i=0;i<n;i++)
+        for(j=0;j<m;j++)
+        {
+            cout<<"a["<<i<<"]["<<j<<"]=";
+            cin>>a[i][j];
+        }
+}
+void afisare1()
+{
+    for(i=0;i<n;i++)
+    {
+        cout<<endl;
+        for(j=0;j<m;j++)
+            cout<<a[i][j]<<" ";
+    }
+}
+void afisare2()
+{
+    int s=0,s1=0,p=1;
+    for(i=0;i<n;i++)
+        for(j=0;j<m;j++)
+        {
+            s+=a[i][j];
+            if(a[i][j]%2==0)
+                s1+=a[i][j];
+            else
+                p*=a[i][j];
+        }
+    cout<<"Suma elementelor matricii este:"<<s<<endl;
+    cout<<"Suma elementelor pare ale matricii este:"<<s1<<endl;
+    cout<<"Produsul elementelor impare ale matricii este:"<<p<<endl;
+}
+int main()
+{
+    citire_fara_parametri();
+    afisare1();
+    cout<<endl;
+    afisare2();
+    return 0;
+} */
+unsigned int n,i,j;
+int a[100][100];
+void citire_fara_parametri()
+{
+    cout<<"n=";
+    cin>>n;
+    for(i=0;i<n;i++)
+        for(j=0;j<n;j++)
+        {
+            cout<<"a["<<i<<"]["<<j<<"]=";
+            cin>>a[i][j];
+        }
+}
+void afisare1()
+{
+    int s=0;
+    for(i=0;i<n;i++)
+        s+=a[i][i];
+    cout<<"Media aritmetica a elementelor de pe diagnala principala este:"<<(float)s/n<<endl;;
+}
+void afisare2()
+{
+    int s=0;
+    j=n-1;
+    for(i=0;i<n;i++)
+    {
+        s+=a[i][j--];
+    }
+    cout<<"Radacina patrata a elementelor de pe diagonala secundara este:"<<sqrt(s)<<endl;
+}
+int main()
+{
+    citire_fara_parametri();
+    afisare1();
+    afisare2();
+    return 0;
+}
