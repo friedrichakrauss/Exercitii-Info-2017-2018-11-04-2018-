@@ -1,0 +1,17 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+unsigned int n,i,a[100];
+ifstream f("vector.txt");
+void citire()
+{
+    f>>n;
+    for(i=0;i<n;i++)
+        f>>a[i];
+}
+int main()
+{
+    citire();
+    return 0;
+}
