@@ -1,0 +1,128 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+//III.
+unsigned int a,b,i;
+void citire()
+{
+    cout<<"a=";
+    cin>>a;
+    cout<<"b=";
+    cin>>b;
+}
+unsigned int inversul(unsigned int x)
+{
+    unsigned int inv=0;
+    while(x!=0)
+    {
+        inv=inv*10+x%10;
+        x/=10;
+    }
+    return inv;
+}
+void afisare1()
+{
+    unsigned int nr=0;
+    for(i=a;i<=b;i++)
+    {
+        if(i==inversul(i)&&pow(i,2)==inversul(pow(i,2)))
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+unsigned int sumadivizorilor(unsigned int x)
+{
+    unsigned int s=0,d;
+    for(d=1;d<=(x/2);d++)
+    {
+        if(x%d==0)
+            s+=d;
+    }
+    return s;
+}
+void afisare2()
+{
+    unsigned int nr=0;
+    for(i=a;i<=b;i++)
+    {
+        if(i==sumadivizorilor(i))
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+unsigned int prim(unsigned int x)
+{
+    unsigned int d,nr=0;
+    if(x==0||x==1)
+        return 1;
+    for(d=2;d<=(x/2);d++)
+    {
+        if(x%d==0)
+            nr++;
+    }
+    return nr;
+}
+unsigned int divizori(unsigned int x)
+{
+    unsigned int d,nr=0;
+    for(d=2;d<=x;d++)
+    {
+        if(d%x==0&&prim(d)==0)
+            nr++;
+    }
+    return nr;
+}
+void afisare3()
+{
+    unsigned int nr=0;
+    for(i=a;i<=b;i++)
+    {
+        if(divizori(i)%2==0)
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+void afisare4()
+{
+    unsigned int x,nr=0;
+    cout<<"x=";
+    cin>>x;
+    for(i=a;i<=b;i++)
+    {
+        if((sumadivizorilor(i)-1)>=x)
+        {
+            cout<<i<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+int main()
+{
+    citire();
+    afisare1();
+    cout<<endl;
+    cout<<endl;
+    afisare2();
+    cout<<endl;
+    cout<<endl;
+    afisare3();
+    cout<<endl;
+    cout<<endl;
+    afisare4();
+    return 0;
+}
