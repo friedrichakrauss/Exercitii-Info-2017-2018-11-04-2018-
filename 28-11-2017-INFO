@@ -1,0 +1,186 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+/*Se citesc dimensiunile si elementele uui vector. Sa se afiseze:
+a).elementele vectorului;
+b).suma elementelor vectorului;
+c).produsul elementelor vectorului;
+d).suma nr. pare si produsul nr. impare.
+*/
+/*
+unsigned int i,n;
+int a[30];
+void citire()
+{
+    cout<<"n=";
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cout<<"a["<<i<<"]=";
+        cin>>a[i];
+    }
+}
+void afisare1()
+{
+    int s=0,p=1,s1=0,p1=1;
+    for(i=0;i<n;i++)
+    {
+        s+=a[i];
+        p*=a[i];
+        if(a[i]%2==0)
+            s1+=a[i];
+        else
+            p1*=a[i];
+    }
+    cout<<"Suma parametrilor vectorului este:"<<s<<endl;
+    cout<<"Produsul parametrilor vectorului este:"<<p<<endl;
+    cout<<"Suma parametrilor pari ai vectorului este:"<<s1<<endl;
+    cout<<"Produsul parametrilor impari ai vectorului este:"<<p1<<endl;
+}
+int main()
+{
+    citire();
+    afisare1();
+    return 0;
+}
+*/
+
+//VECTORI--Fisa de lucru
+
+//1.
+/*
+unsigned int i,n;
+int a[30];
+void citire()
+{
+    cout<<"n=";
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cout<<"a["<<i<<"]=";
+        cin>>a[i];
+    }
+}
+void afisare1()
+{
+    int s=0,nr=0,p=1;
+    for(i=0;i<n;i++)
+    {
+        if(a[i]%3==0)
+        {
+            nr++;
+            s+=a[i];
+        }
+        if(a[i]%5==0)
+            p*=a[i];
+    }
+    cout<<"Media aritmetica a nr. divizibile cu 3 este:"<<(float)s/nr<<endl;
+    cout<<"Radacia patrata a nr. divizibile cu 5 este:"<<sqrt(p)<<endl;
+}
+int main()
+{
+    citire();
+    afisare1();
+    return 0;
+}
+*/
+
+//2.
+/*
+unsigned int i,n;
+int a[30];
+void citire()
+{
+    cout<<"n=";
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cout<<"a["<<i<<"]=";
+        cin>>a[i];
+    }
+}
+void afisare1()
+{
+    int nr=0;
+    for(i=0;i<n;i++)
+    {
+        if(a[i]==a[i-1]+a[i+1])
+        {
+            cout<<a[i]<<" ";
+            nr++;
+            if(nr%5==0)
+                cout<<endl;
+        }
+    }
+}
+int main()
+{
+    citire();
+    afisare1();
+    return 0;
+}
+*/
+
+//3.
+
+unsigned int i,n;
+int a[30];
+void citire()
+{
+    cout<<"n=";
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cout<<"a["<<i<<"]=";
+        cin>>a[i];
+    }
+}
+void afisare1()
+{
+    int s=0,nr=0,s1=0,nr1=0,nr2=0;
+    for(i=0;i<n;i++)
+    {
+        if(i%2==0)
+        {
+            nr++;
+            s+=a[i];
+            if(a[i]%2!=0)
+                nr1++;
+        }
+        else
+        {
+            s1+=a[i];
+            if(a[i]%2==0)
+                nr2++;
+        }
+    }
+    cout<<"Media aritmetica a nr. de pe pozitii pare este:"<<(float)s/nr<<endl;
+    cout<<"Suma nr. de pe pozitii impare este:"<<s1<<endl;
+    cout<<"Nr. numerelor pare de pe pozitii impare este:"<<nr2<<endl;
+    cout<<"Nr. numerelor impare de pe pozitii pare este:"<<nr1<<endl;
+}
+void afisare2()
+{
+    cout<<"Vectorul initial:"<<endl;
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<endl;
+        if(a[i]%2==0)
+            a[i]=0;
+        else
+            a[i]=1;
+    }
+    cout<<"Vectorul dupa inlocuire:"<<endl;
+    for(i=0;i<n;i++)
+    {
+        cout<<a[i]<<endl;
+    }
+}
+int main()
+{
+    citire();
+    afisare1();
+    afisare2();
+    return 0;
+}
